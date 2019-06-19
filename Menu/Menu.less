@@ -9,7 +9,7 @@
   position: fixed;
   top: 75px;
   left: 0;
-  width: 350px;
+  width: 350px; //tweens to 350px on click
   height: 100vh; /* This give the height 100% of the screen or, '100% of View Height' */
   background-color: #81C784;
   border: 1px solid #004D40;
@@ -27,4 +27,20 @@
 
 .menu--open {
   display: block;
+}
+
+ 
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-350px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+	        animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
