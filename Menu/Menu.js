@@ -1,8 +1,14 @@
 
 const toggleMenu = () => {
   // Toggle the "menu--open" class on your menu refence. 
-  menu.classList.toggle('menu--open');
-  menu.classList.toggle('slide-in-left');
+  if (menu.classList.contains('slide-in-left')) {
+
+    menu.classList.remove('slide-in-left', true);
+    menu.classList.add('slide-out-left');
+  } else {
+    menu.classList.add('slide-in-left');
+  
+  }
 };
 
 // Start Here: Create a reference to the ".menu" class
