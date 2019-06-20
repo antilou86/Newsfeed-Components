@@ -64,6 +64,10 @@
 }
 .menu--open {
   display: block;
+  animation-name: slide-in-left;
+  animation-duration: 2s;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
 }
 @keyframes slide-in-left {
   0% {
@@ -75,16 +79,26 @@
     opacity: 1;
   }
 }
+@keyframes slide-out-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-350px);
+    opacity: 0;
+  }
+}
 .slide-in-left {
   animation-name: slide-in-left;
   animation-duration: 2s;
-  animation-direction: normal;
+  animation-direction: alternate;
   animation-fill-mode: both;
 }
 .slide-out-left {
-  animation: slide-in-left;
+  animation-name: slide-out-left;
   animation-duration: 2s;
-  animation-direction: reverse;
+  animation-direction: alternate;
   animation-fill-mode: both;
 }
 .articles {
