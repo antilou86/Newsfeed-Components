@@ -1,4 +1,4 @@
-//constructs the following html and insert it below the header div
+//constructs the following html and inserts it below the header div
 /*
 <div class="menu">
       <ul>
@@ -12,18 +12,31 @@
     </div>
 */
 function buildMenu() {
-  let menuWrapper = document.createElement('div');
+  const menuWrapper = document.createElement('div');
   menuWrapper.classList.add('menu');
-  
-  let listDiv = document.createElement('ul');
+
+  const listDiv = document.createElement('ul');
+  menuWrapper.appendChild(listDiv);
   
   function createList() {
-      
-  };
-  let listItem = document.createElement('ul');
+      const listArray = ['Students','Faculty','What\'s New','Tech Trends','Music','Log Out'];
+      for (i in listArray) {
+        let variable = document.createElement('LI');
+        variable.textContent = listArray[i];
+        listDiv.appendChild(variable);
+      }
+  }
+  createList();
+  let targetNode = document.querySelector('body');
+  let referenceNode = document.querySelector('.articles');
+  targetNode.insertBefore(menuWrapper,referenceNode);
   
-  listDiv.appendChild()
+  return menuWrapper;
 }
+buildMenu();
+
+
+
 // Toggle
 const toggleOn = () => {
   if (menu.classList.contains('slide-in-left')) {
