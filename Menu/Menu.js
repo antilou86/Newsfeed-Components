@@ -1,12 +1,31 @@
-
+//constructs the following html and insert it below the header div
+/*
+<div class="menu">
+      <ul>
+        <li>Students</li>
+        <li>Faculty</li>
+        <li>What's New</li>
+        <li>Tech Trends</li>
+        <li>Music</li>
+        <li>Log Out</li>
+      </ul>
+    </div>
+*/
+function buildMenu() {
+  let menuWrapper = document.createElement('div');
+  menuWrapper.classList.add('menu');
+  
+  let listDiv = document.createElement('ul');
+  
+  function createList() {
+      
+  };
+  let listItem = document.createElement('ul');
+  
+  listDiv.appendChild()
+}
+// Toggle
 const toggleOn = () => {
-  // Toggle
-
-  // menu.classList.add('slide-in-left');
-  // setTimeout( function (){ 
-  //   menu.classList.add('slide-out-left');
-  //   menu.classList.remove('slide-in-left');
-  // }, 2500);
   if (menu.classList.contains('slide-in-left')) {
     menu.classList.remove('slide-in-left');
     menu.classList.add('slide-out-left');
@@ -16,14 +35,14 @@ const toggleOn = () => {
   }
 };
 
-
-// Start Here: Create a reference to the ".menu" class
+// reference to the ".menu" class element
 const menu= document.querySelector('.menu');
-// create a reference to the ".menu-button" class
+//reference to the ".menu-button" class element
 const menuButton=document.querySelector('.menu-button');
-// Using your menuButton reference, add a click handler that calls toggleMenu
 
+//handles clicks
 menuButton.addEventListener('click', () => {
   toggleOn();
 });
 
+//dont forget to add <script defer="defer" src="../components/Menu-slider/slider.js" async></script> in body of index.html
