@@ -171,10 +171,6 @@ function articlePooperOutter(dataObject) {
   
     let spanThing = document.createElement('span');
     spanThing.classList.add('expandButton');
-    spanThing.addEventListener('click', (event) => {
-      event.target.classList.toggle('.article-open')
-    })
-
 
     articleContainer.appendChild(titleThing);
     articleContainer.appendChild(dateThing);
@@ -183,8 +179,13 @@ function articlePooperOutter(dataObject) {
     articleContainer.appendChild(p3);
     articleContainer.appendChild(spanThing);
 
+    articleContainer.addEventListener('click', () => {
+      articleContainer.classList.toggle('article-open');
+    });
+
     let targetNode = document.querySelector('.articles');
     targetNode.appendChild(articleContainer);
+  
   }
 };
 articlePooperOutter(data);

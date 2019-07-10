@@ -111,7 +111,7 @@
   border-radius: 10px;
   background-color: white;
   position: relative;
-  height: 50px;
+  height: 60px;
   overflow: hidden;
   box-shadow: 2px 2px 2px lightgrey;
 }
@@ -129,7 +129,7 @@
   top: 10px;
   right: 10px;
 }
-.article .expandButton {
+.article .article .expandButton {
   position: absolute;
   bottom: 0;
   left: 50%;
