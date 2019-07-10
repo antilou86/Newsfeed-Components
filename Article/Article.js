@@ -119,6 +119,23 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Making Functions Poop Data',
+    date: 'July 10th, 2019',
+    firstParagraph: `Have you ever seen a function make a bodily function? well, now you have! welcome to the slick and exciting world of functions 
+          pooping out data all over your innocent little PC screen. also works on laptops and tablets and phones. anyway lets ask Hodor how he feels
+          back to you, Hodor! <br /> 
+          Hodor says: `,
+
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
 
@@ -131,34 +148,52 @@ const data = [
     <span class='expandButton'></span>
   </div>
   */
-function articlePooperOutter() {
+function articlePooperOutter(dataObject) {
   
-  for (i in data) {
+  for (i in dataObject) {
   
-  let articleContainer = document.createElement('div');
-  articleContainer.classList.add('article');
+    let articleContainer = document.createElement('div');
+    articleContainer.classList.add('article');
 
-  let titleThing = document.createElement('h2')
-  titleThing.textContent = data[i].title 
+    let titleThing = document.createElement('h2')
+    titleThing.textContent = dataObject[i].title 
 
-  let dateThing = document.createElement('p')
-  dateThing.classList.add('date');
-  dateThing.textContent = data[i].date
+    let dateThing = document.createElement('p')
+    dateThing.classList.add('date');
+    dateThing.textContent = dataObject[i].date
   
-  let p1 = document.createElement('p');
-  p1.textContent = data[i].firstParagraph;
-  let p2 = document.createElement('p');
-  p2.textContent = data[i].secondParagraph;
-  let p3 = document.createElement('p');
-  p3.textContent = data[i].thirdParagraph;
+    let p1 = document.createElement('p');
+    p1.textContent = dataObject[i].firstParagraph;
+    let p2 = document.createElement('p');
+    p2.textContent = dataObject[i].secondParagraph;
+    let p3 = document.createElement('p');
+    p3.textContent = dataObject[i].thirdParagraph;
+  
+    let spanThing = document.createElement('span');
+    spanThing.classList.add('expandButton');
+    spanThing.addEventListener('click', (event) => {
+      event.target.classList.toggle('.article-open')
+    })
 
+
+    articleContainer.appendChild(titleThing);
+    articleContainer.appendChild(dateThing);
+    articleContainer.appendChild(p1);
+    articleContainer.appendChild(p2);
+    articleContainer.appendChild(p3);
+    articleContainer.appendChild(spanThing);
+
+    let targetNode = document.querySelector('.articles');
+    targetNode.appendChild(articleContainer);
   }
-}
+};
+articlePooperOutter(data);
+
  /*
   Hint: You will need to use createElement more than once here!
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each peice of the data object above.
   Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
   Step 3: return the entire component.
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+  Step 4: Map over the data, creating a component for each object and add each component to the DOM as children of the 'articles' div.
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 */
