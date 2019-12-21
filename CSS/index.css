@@ -41,7 +41,7 @@
   cursor: pointer;
 }
 .menu {
-  display: none;
+  display: block;
   position: fixed;
   top: 75px;
   left: 0;
@@ -54,6 +54,7 @@
   border-bottom: none;
   z-index: 2;
   /* This set the layer level of the element, it has precendence over initial level of 1*/
+  transform: translateX(-350px);
 }
 .menu ul li {
   list-style-type: none;
@@ -63,6 +64,42 @@
 }
 .menu--open {
   display: block;
+  animation-name: slide-in-left;
+  animation-duration: 2s;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-350px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-out-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-350px);
+    opacity: 0;
+  }
+}
+.slide-in-left {
+  animation-name: slide-in-left;
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+.slide-out-left {
+  animation-name: slide-out-left;
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-fill-mode: both;
 }
 .articles {
   margin-top: 95px;
@@ -74,7 +111,7 @@
   border-radius: 10px;
   background-color: white;
   position: relative;
-  height: 50px;
+  height: 60px;
   overflow: hidden;
   box-shadow: 2px 2px 2px lightgrey;
 }
@@ -92,7 +129,7 @@
   top: 10px;
   right: 10px;
 }
-.article .expandButton {
+.article .article .expandButton {
   position: absolute;
   bottom: 0;
   left: 50%;
